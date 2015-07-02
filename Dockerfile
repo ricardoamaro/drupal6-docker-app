@@ -46,6 +46,9 @@ RUN php --version
 RUN composer --version
 RUN drush --version
 
+# Drupal new version
+ADD https://www.drupal.org/project/drupal /tmp/latest.html
+
 # Retrieve drupal
 RUN rm -rf /var/www/html ; cd /var/www ; drush -v dl drupal --default-major=6 --drupal-project-rename="html"
 RUN chmod a+w /var/www/html/sites/default ; mkdir /var/www/html/sites/default/files ; chown -R www-data:www-data /var/www/html/

@@ -46,7 +46,7 @@ RUN php --version
 RUN composer --version
 RUN drush --version
 
-# Drupal new version
+# Drupal new version, clean cache
 ADD https://www.drupal.org/project/drupal /tmp/latest.html
 
 # Retrieve drupal

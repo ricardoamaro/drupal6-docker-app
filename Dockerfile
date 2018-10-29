@@ -8,7 +8,7 @@ RUN apt-get update
 RUN dpkg-divert --local --rename --add /sbin/initctl
 RUN ln -sf /bin/true /sbin/initctl
 
-RUN apt-get -y install git curl wget supervisor openssh-server \
+RUN apt-get -y install git curl wget supervisor openssh-server netcat \ 
   mysql-client mysql-server apache2 libapache2-mod-php5 pwgen python-setuptools \
   vim-tiny php5-mysql php-apc php5-gd php5-curl php5-memcache memcached mc drush; \
   apt-get clean; \

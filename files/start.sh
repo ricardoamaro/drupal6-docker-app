@@ -17,7 +17,9 @@ function PrintCreds() {
 if [ ! -f /var/www/html/sites/default/settings.php ]; then
 	# Start mysql
 	/usr/bin/mysqld_safe --skip-syslog &
-	sleep 3s
+  # Wait for mysql
+  while ! nc -z localhost 3306; do sleep 0.1; done
+	sleep 2s
 	# Generate random passwords
 	DRUPAL_DB="drupal"
 	ROOT_PASSWORD=`pwgen -c -n -1 12`
